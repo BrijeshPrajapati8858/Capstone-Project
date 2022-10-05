@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 import User from '../../assets/user.png';

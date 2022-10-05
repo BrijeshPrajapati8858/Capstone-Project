@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { clearErrors, register } from '../../actions/userAction';
 import { useNavigate , useLocation } from "react-router-dom";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
+import { ToastContainer, toast } from 'react-toastify';
 import '../LoginSignup/LoginSignup.css'
 import './index.css'
 
@@ -82,19 +82,20 @@ const SignUp = () => {
 
 const redirect= location.search ? location.search.split("=")[0]: "/account";
 useEffect(() => {
+  // if(error){
+  //   toast.error(error);
+  //  }
   if(isAuthenticated){
     navigate(redirect)
    }
-   if(error){
-    alert(error);
-   }
+  
   }, [isAuthenticated, error, ]);
 
 
   return (
 <div className='form-container'>       
 <h2>Restaurant Registration Form</h2>
-  <form
+   {loading ? <Loader/> : (<form
                 className="signUpForms"
                 encType="multipart/form-data"
                 onSubmit={registerSubmit}
@@ -176,6 +177,7 @@ useEffect(() => {
                     required
                     name="openingTime"
                     value={openingTime}
+                   
                     onChange={registerDataChange}
                   />
                   </div>
@@ -202,7 +204,20 @@ useEffect(() => {
                   />
                 </div>
                 <input type="submit" value="Register" className="signUpBtn" />
-              </form>  </div>
+              </form>
+   )}
+              
+              <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />  </div>
 
   
   );

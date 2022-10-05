@@ -4,7 +4,7 @@ import Loader from '../../components/loader/Loader';
 import MetaData from '../MetaData/MetaData';
 import './UpdateProfile.css';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-
+import { ToastContainer, toast } from 'react-toastify';
 import {useDispatch, useSelector} from 'react-redux';
 import { clearErrors,forgotPassword} from '../../actions/userAction';
 
@@ -36,11 +36,11 @@ const [email, setEmail] = useState('');
 
   useEffect(() => {
     if(error){
-        alert(error);
+        toast.error(error);
         dispatch(clearErrors());
     }
     if(message){
-        alert(message)
+        toast.success(message)
      }
     }, [dispatch, error, message ]);
   return (
@@ -76,6 +76,17 @@ const [email, setEmail] = useState('');
         
         )}
     
+<ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
     </>
   )
 }

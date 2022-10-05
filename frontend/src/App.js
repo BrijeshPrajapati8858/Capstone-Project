@@ -42,6 +42,7 @@ import BottomTab from "./components/BottomTab/BottomTab";
 import Search_Section from "./components/contents/Search_Section";
 import SignUp from "./pages/Join/SignUp";
 
+
 // import Notfound from "./more/Notfound";
 
 
@@ -91,6 +92,7 @@ const [stripeApiKey, setStripeApiKey] = useState("");
             <Route path="/password/forgot" element={<ForgotPassword/>} />
             <Route path="/password/reset/:token" element={<ResetPassword/>} />
             <Route exact path="/cart"  element={<Cart/>} />
+ 
 
             {isAuthenticated && <Route path="/account" element={<Profile />} /> }
             {isAuthenticated &&  <Route path="/login/shipping" element={<Shipping />} /> }

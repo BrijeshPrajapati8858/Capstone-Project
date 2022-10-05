@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { UPDATE_PASSWORD_RESET } from '../../constants/userConstant';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LockIcon from '@mui/icons-material/Lock';
-
+import { ToastContainer, toast } from 'react-toastify';
 
  
 const ResetPassword = () => {
@@ -36,11 +36,11 @@ const [confirmPassword, setConfirmPassword] = useState('');
 
   useEffect(() => {
     if(error){
-        alert(error);
+        toast.error(error);
         dispatch(clearErrors());
     }
     if(success){
-        alert("Password Updated Successfully")
+        toast.success("Password Updated Successfully")
      navigate("/login");
 
      dispatch({
@@ -91,7 +91,18 @@ const [confirmPassword, setConfirmPassword] = useState('');
     </div>
     
     )}
-
+    
+    <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
 </>
   )
    

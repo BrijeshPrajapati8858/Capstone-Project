@@ -8,13 +8,13 @@ import FaceIcon from '@mui/icons-material/Face';
 import {useDispatch, useSelector} from 'react-redux';
 import { clearErrors, login, register } from '../../actions/userAction';
 import { useNavigate , useLocation } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
 const LoginSignup = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
 
-  const { loading, isAuthenticated} = useSelector(state=> state.user)
+  const { error, loading, isAuthenticated} = useSelector(state=> state.user)
     const loginTab = useRef(null);
     const registerTab = useRef(null);
     const switcherTab = useRef(null);
@@ -75,11 +75,15 @@ const LoginSignup = () => {
     
     const redirect= location.search ? location.search.split("=")[1]: "/account";
     useEffect(() => {
+      // if(error){
+      //   toast.error(error);
+      //   dispatch(clearErrors());
+      // }
       if(isAuthenticated){
         navigate(redirect)
        }
       
-      }, [isAuthenticated,  redirect]);
+      }, [isAuthenticated,  error, redirect]);
 
     const switchTabs = (e, tab)=>{
         if(tab === "login"){
@@ -99,7 +103,8 @@ const LoginSignup = () => {
     }
   return (
     <>
-    {loading? <Loader/> : (    <div className='LoginSignUpContainer'>
+    {loading? <Loader/> : (   
+       <div className='LoginSignUpContainer'>
         <div className='LoginSignUpBox'>
             <div>
                 <div className='login_signUp_toggle'>
@@ -122,7 +127,7 @@ const LoginSignup = () => {
                 <LockOpenIcon />
                 <input type="password" placeholder="Password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)}/>
             </div>
-            <Link to='/password/forgot'>Forget Password ?</Link>
+            <Link to='/password/forgot' className='forgotBtn'>Forget Password ?</Link>
             <input type="submit" value="Login" className='loginBtn' />
 
         </form>
@@ -185,10 +190,24 @@ const LoginSignup = () => {
 
             
         </div>
+        </div>
        
-    </div>
-    )}
 
+
+
+
+    )}
+<ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
 
     </>
   )

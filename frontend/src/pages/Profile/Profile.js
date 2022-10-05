@@ -1,22 +1,28 @@
 import React, { useEffect } from 'react'
 import { Link} from 'react-router-dom'
 import MetaData from '../../components/MetaData/MetaData';
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import Loader from '../../components/loader/Loader';
 import { useNavigate,  } from 'react-router-dom';
 import './Profile.css';
-
+import { clearErrors} from "../../actions/productAction";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Profile = () => {
     
     const navigate = useNavigate();
    
+  const dispatch = useDispatch();
 
-    const {isAuthenticated, user, loading, } = useSelector((state)=> state.user);
+    const {isAuthenticated, user, loading,error } = useSelector((state)=> state.user);
 
 
     useEffect(() => {
+        if(error){
+            toast.error(error);
+            dispatch(clearErrors());
+          }
         if(isAuthenticated===false){
           navigate("/login")
          }
@@ -73,6 +79,17 @@ useEffect(() => {
     
 
  
+<ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
 
    </>
   )

@@ -13,7 +13,7 @@ import { SpeedDialAction } from '@mui/material';
 import {useNavigate} from "react-router-dom";
 import {logout} from "../../actions/userAction"
 import { useSelector, useDispatch } from 'react-redux';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const UserOptions = ({user}) => {
     const dispatch = useDispatch();
@@ -48,10 +48,10 @@ function cart(){
    navigate('/cart');
 }
 function logoutUser(){
-  // navigate("/login")
+  navigate("/")
     dispatch(logout());
     
-   alert("Logout successfully");
+    toast.success("Logout successfully");
  
 
 }
@@ -81,6 +81,18 @@ function logoutUser(){
         <SpeedDialAction key={i} icon={item.icon} tooltipTitle={item.name} onClick={item.func}/>
      ))}   
     </SpeedDial>
+    
+<ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
     </>
   )
 }

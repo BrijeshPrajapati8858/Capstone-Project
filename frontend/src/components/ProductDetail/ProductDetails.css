@@ -73,8 +73,12 @@ input[type="number"] {
   text-align: center;
 }
 .pointer{
-background-color: #fad037;
+background-color: #ffaa00;
 border-radius: 7px;
+cursor: pointer;
+}
+.pointer:hover{
+  background-color: #7c81ff;
 }
 .pointer button{
   background: transparent;
@@ -87,13 +91,17 @@ border-radius: 7px;
   padding-right: 50px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 .description{
   font-size: 1.6rem !important;
-  background-color: yellow;
+  background-color: rgb(237, 209, 138);
   width: min-content;
+  padding: 0rem 1rem;
+  border-radius: 7px;
 
 }
+
 
 @media screen and (max-width: 600px) {
   .ProductDetails{

@@ -26,7 +26,7 @@
     box-shadow: 15px 15px 15px rgba(219, 213, 213, 0.2), 
     -15px 15px 15px rgba(0,0,0,0.1);
     border-radius: 10px;
-    background: none;
+    background: rgba(255, 255, 255, 0.849);
   }
   .login_signUp_toggle {
     display: flex;
@@ -173,52 +173,63 @@
   @media screen and (max-width: 600px) {
     .LoginSignUpContainer {
       background-color: white;
+     
     }
     .LoginSignUpBox {
       width: 100vw;
       height: 95vh;
+      margin: 20px !important;
     }
     .login_signUp_toggle {
-      height: 5vmax;
+      height: 5vmax !important;
     }
     .login_signUp_toggle > p {
-      font: 300 1.5vmax "Roboto";
+      font: 600 1.9vmax "Roboto" !important;
     }
   
     .loginForm,
     .signUpForm {
-      padding: 5vmax;
+      padding: 2vmax!important;
     }
   
-    .loginForm > div > input,
+    .loginForm div> input{
+      padding: 2.5vmax 5vmax!important;
+      font: 300 2.7vmax cursive !important;
+    }
     .signUpForm > div > input {
-      padding: 2.5vmax 5vmax;
-      font: 300 1.7vmax cursive;
+      padding: 2.5vmax 5vmax !important;
+      font: 300 1.7vmax cursive !important;
     }
   
-    .loginForm > div > svg,
-    .signUpForm > div > svg {
-      font-size: 2.8vmax;
+    .loginForm > div > svg{
+      font-size: 2.8vmax !important;
     }
+    .signUpForm > div > svg {
+      font-size: 2.8vmax !important;
+    }
+
   
     .loginForm > a {
-      font: 500 1.8vmax "Gill Sans";
+      font: 500 1.8vmax "Gill Sans" !important;
     }
   
     #registerImage > img {
-      width: 8vmax;
-      border-radius: 100%;
+      width: 8vmax !important;
+      border-radius: 100% !important;
     }
   
     #registerImage > input::file-selector-button {
-      height: 7vh;
-      font: 400 1.8vmax cursive;
+      height: 7vh !important;
+      font: 400 1.8vmax cursive !important;
     }
   
     .loginBtn,
     .signUpBtn {
       font: 300 1.9vmax "Roboto";
       padding: 1.8vmax;
+    }
+    .forgotBtn{
+      font-size: 1.2rem !important;
     }
   }
 

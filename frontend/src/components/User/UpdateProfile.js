@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { clearErrors,loadUser,updateProfile} from '../../actions/userAction';
 import { useNavigate  } from "react-router-dom";
 import { UPDATE_PROFILE_RESET } from '../../constants/userConstant';
-
+import { ToastContainer, toast } from 'react-toastify';
 const UpdateProfile = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -60,11 +60,11 @@ const [avatarPreview, setAvatarPreview] = useState("/profile.png");
         navigate("/login");
     }
     if(error){
-        alert(error);
+        toast.error(error);
         dispatch(clearErrors());
     }
     if(isUpdated){
-        alert("Profile Updated Successfully")
+        toast.success("Profile Updated Successfully")
      dispatch(loadUser());
      navigate("/account");
 
@@ -126,6 +126,17 @@ const [avatarPreview, setAvatarPreview] = useState("/profile.png");
         
         )}
     
+<ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
     </>
   )
 }

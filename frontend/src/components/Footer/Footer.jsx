@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.css';
 import Logo from '../../assets/logo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 
@@ -92,7 +92,7 @@ const Footer = () => {
           <div className="footer-call-to-action">
             <h2 className="footer-call-to-action-title"> Let's Chat</h2>
             <p className="footer-call-to-action-description"> Have a support question?</p>
-            <a className="footer-call-to-action-button button" href="#" target="_self"> Get in Touch </a>
+            <NavLink to="/contact" className="footer-call-to-action-button button"  target="_self"> Get in Touch </NavLink>
           </div>
           <div className="footer-call-to-action">
             <h2 className="footer-call-to-action-title"> You Call Us</h2>

@@ -185,7 +185,7 @@ const UpdateOrder = () => {
         </div>
       </div>
       <ToastContainer 
-        position="bottom-center"
+        position="top-center"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}

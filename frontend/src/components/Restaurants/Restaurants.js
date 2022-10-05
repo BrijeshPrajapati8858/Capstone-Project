@@ -19,25 +19,6 @@ const Restaurants = () => {
    
   } = useSelector((state) => state.restaurants);
 
-console.log(restaurants)
-
-
-
-// const rows = [];
-
-// restaurants &&
-// restaurants.forEach((item) => {
-//     rows.push({
-//         id:item._id,
-//       avatar: item.avatar.url,
-//       email: item.email,
-//       restaurant: item.restaurant,
-//     });
-//   });
-
-//   console.log(rows);
- 
-
   useEffect(()=>{
   dispatch(getAllRestaurants())
   },[dispatch])

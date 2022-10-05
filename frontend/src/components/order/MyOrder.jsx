@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import "./myOrders.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,17 +15,11 @@ const MyOrder = () => {
    
   const { loading, error, orders } = useSelector((state) => state.myOrder);
 
-  const { user } = useSelector((state) => state.user);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
-    // {
-    //   field: "product",
-    //   headerName: "Food",
-    //   type: "text",
-    //   minWidth: 150,
-    //   flex: 0.3,
-    // },
+   
     {
       field: "status",
       headerName: "Status",
@@ -99,7 +93,7 @@ const MyOrder = () => {
   }, [dispatch, alert, error]);
 
   return (
-    <Fragment>
+    <>
       <MetaData title={`${user.name} - Orders`} />
 
       {loading ? (
@@ -128,7 +122,7 @@ const MyOrder = () => {
         draggable
         pauseOnHover
       />
-    </Fragment>
+    </>
   );
 };
 

@@ -52,6 +52,7 @@ const userSchema = mongoose.Schema({
   openingTime: {
         type: String,
        
+       
     },
   closingTime:{
       type: String,

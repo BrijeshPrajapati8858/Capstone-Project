@@ -20,6 +20,7 @@
         <div className="bottomOption">
           <Link to="/">
             <HomeIcon  
+            className="hoverItem"
             style={{
               color:"#000",
               fontSize:"35px",
@@ -30,6 +31,7 @@
           </Link>
           <Link to="/search">
            <SearchIcon 
+             className="hoverItem"
            style={{
             color:"#000",
             fontSize:"35px",
@@ -42,6 +44,7 @@
               position:"relative"
             }}>
             <LocalMallIcon 
+              className="hoverItem"
              style={{
               color:"#000",
               fontSize:"35px",
@@ -72,6 +75,7 @@
               position:"relative"
             }}>
             <FavoriteBorderIcon 
+              className="hoverItem"
             style={{
               color:"#000",
               fontSize:"35px",
@@ -99,6 +103,7 @@
           </Link>
           <Link to="/login">
           <PersonIcon 
+            className="hoverItem"
            style={{
             color:"#000",
             fontSize:"35px",
@@ -108,7 +113,8 @@
           />
           </Link>
           <Link to="/orders">
-            <DehazeIcon style={{
+            <DehazeIcon
+              className="hoverItem" style={{
               color:"#000",
               fontSize:"35px",
               margin:"5px",
