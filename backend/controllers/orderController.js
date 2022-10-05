@@ -66,43 +66,42 @@ exports.myOrders = catchAsyncErrors(async (req, res, next) => {
 
 // get all Orders -- Admin
 exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
-  const orders = await Order.find()
-    .populate('orderItems.product')
-    .populate('orderItems.product.user')
-    .where('orderItems.product.user._id')
-    .equals(req.user._id);
-    console.log(orders)
-  // const order = await Order.aggregate([
+  // let orders = await Order.find().populate([
   //   {
-  //     $lookup: {
-  //       from: 'products',
-  //       localField: 'orderItems.product',
-  //       foreignField: '_id',
-  //     },
-  //   },
-  //   {
-  //     $lookup: {
-  //       from: 'users',
-  //       localField: 'orderItems.product.user',
-  //       foreignField: '_id',
-  //     },
-  //   },
-  //   {
-  //     $match: {
-  //       'orderItems.product.user._id': req.user._id,
+  //     path: 'orderItems.product',
+  //     populate: {
+  //       path: 'user',
+  //       match: { _id: req.user._id },
+  //       select: '_id',
   //     },
   //   },
   // ]);
 
-
+  const orders = await Order.aggregate([
+    {
+      $lookup: {
+        from: 'products',
+        localField: 'orderItems.product',
+        foreignField: '_id',
+        as: '_products_list',
+      },
+    },
+    {
+      $match: {
+        _products_list: {
+          $elemMatch: {
+            user: req.user._id,
+          },
+        },
+      },
+    },
+  ]);
 
   let totalAmount = 0;
 
   orders.forEach((order) => {
     totalAmount += order.totalPrice;
   });
-
-
 
   res.status(200).json({
     success: true,
