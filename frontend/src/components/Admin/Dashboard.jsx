@@ -87,7 +87,7 @@ const Dashboard = () => {
           <div className="dashboardSummary">
             <div>
               <p>
-                Total Amount <br /> ${totalAmount}
+                Total Amount <br /> ₹{totalAmount}
               </p>
             </div>
             <div className="dashboardSummaryBox2">
@@ -99,10 +99,10 @@ const Dashboard = () => {
                 <p>Orders</p>
                 <p>{orders && orders.length}</p>
               </Link>
-              <Link to="/admin/users">
+              {/* <Link to="/admin/users">
                 <p>Users</p>
                 <p>{users && users.length}</p>
-              </Link>
+              </Link> */}
             </div>
           </div>
   

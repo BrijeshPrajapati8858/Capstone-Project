@@ -60,7 +60,3 @@ overflow: scroll;
   height: fit-content;
 }
 }
-
-.sidebar::-webkit-scrollbar{
-  overflow-y: hidden;
-}

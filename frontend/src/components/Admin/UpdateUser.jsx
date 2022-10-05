@@ -132,7 +132,7 @@ const UpdateUser = () => {
         </div>
       </div>
       <ToastContainer 
-        position="top-center"
+        position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}

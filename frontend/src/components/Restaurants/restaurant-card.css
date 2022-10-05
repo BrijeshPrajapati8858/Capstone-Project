@@ -76,3 +76,16 @@ text-align: center;
     }
     
 }
+.time
+{
+    display: flex;
+    justify-content: space-around;
+   
+}
+.time h5:first-child{
+    color: rgb(4, 68, 1);
+   
+}
+.time h5:last-child{
+    color: red;
+}

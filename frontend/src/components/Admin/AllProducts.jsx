@@ -120,7 +120,7 @@ const columns = [
         id:item._id,
         name: item.name,
         stock: item.stock,
-        price: item.price,
+        price: `₹${item.price}`,
         
       });
     });
