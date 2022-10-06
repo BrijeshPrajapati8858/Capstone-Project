@@ -4,7 +4,7 @@ Hi! I am **Brijesh Prajapati**
 
 # Prerequisite
 
-1.  Must have basic knowledge of **Node**, **React**, **Express**, **MongoDB** .
+1.  Must have basic knowledge of  **HTML**, **CSS**, **JavaScript**, **Node**, **React**, **Express**, **MongoDB** .
 
 # Install Dependencies
 
