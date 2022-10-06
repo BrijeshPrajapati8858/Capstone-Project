@@ -58,3 +58,9 @@ CLOUDINARY_API_SECRET
 _fill each filed with your info respectively_
 
 
+# Documentation
+https://documenter.getpostman.com/view/21808362/2s83zfR5T1
+
+
+
+
