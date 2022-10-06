@@ -1,6 +1,6 @@
 # Project
 
-Hi! My name is **Brijesh Prajapati**
+Hi! I am **Brijesh Prajapati**
 
 # Prerequisite
 
