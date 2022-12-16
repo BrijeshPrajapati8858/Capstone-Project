@@ -61,12 +61,12 @@ let initialState = {
     shippingInfo: localStorage.getItem("shippingInfo")
       ? JSON.parse(localStorage.getItem("shippingInfo"))
       : {},
-    // },
+    },
     // favourite: {
     //   favouriteItems: localStorage.getItem("favouriteItems")
     //     ? JSON.parse(localStorage.getItem("favouriteItems"))
     //     : [],
-  },
+  // },
 };
 const middleware = [thunk];
 const store = createStore(

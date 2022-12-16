@@ -18,7 +18,25 @@ const MyOrder = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
 
   const columns = [
+    
+    {
+      field: "actions",
+      flex: 0,
+      headerName: "Details",
+      minWidth: 150,
+      type: "number",
+      sortable: false,
+      minWidth: 50,
+      renderCell: (params) => {
+        return (
+          <Link to={`/order/${params.getValue(params.id, "id")}`}>
+            <LaunchIcon />
+          </Link>
+        );
+      },
+    },
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+    
    
     {
       field: "status",
@@ -48,21 +66,6 @@ const MyOrder = () => {
     },
 
 
-    {
-      field: "actions",
-      flex: 0.3,
-      headerName: "Details",
-      minWidth: 150,
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <Link to={`/order/${params.getValue(params.id, "id")}`}>
-            <LaunchIcon />
-          </Link>
-        );
-      },
-    },
       
   ];
   const rows = [];
@@ -75,7 +78,7 @@ const MyOrder = () => {
 
 
         itemsQty: item.orderItems.length === 0 ? 1 : item.orderItems.length,
-        id: item._id,
+        id:item._id,
         product: item.name,
         status: item.orderStatus,
         amount: item.totalPrice,
@@ -95,7 +98,14 @@ const MyOrder = () => {
   return (
     <>
       <MetaData title={`${user.name} - Orders`} />
-
+    {/* { orders.length === 0 ? (
+          <div className="emptyCart">
+            <RemoveShoppingCartIcon />
+            <Typography>No Items In Cart</Typography>
+            <Link to="/products">View Products</Link>
+            <BottomTab />
+          </div>
+        ): */}
       {loading ? (
         <Loading />
       ) : (

@@ -248,7 +248,7 @@ exports.getProductCategory = catchAsyncErrors(async(req,res,next)=>{
 //get  product  admin
 
 exports.getAdminProduct= catchAsyncErrors(async(req,res,next)=>{
-  console.log("HEllo")
+  
   const products = await Product.find({
     user : req.user._id
   });
