@@ -38,7 +38,7 @@ const Search_Section = () => {
                 <p>Search your favourite foods from your favourite Restaurant and get delivered to you own city...</p>
             </div>
         
-            <form onSubmit ={searchSubmitHandler}>
+            <form onSubmit ={searchSubmitHandler} className="form_container">
                 <div className='form-input'>
                     <input type="text" placeholder="City  /  Restaurant  /  Food"
                      onChange={(e)=> setKeyword(e.target.value)}/>
