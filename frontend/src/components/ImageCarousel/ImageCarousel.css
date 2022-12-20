@@ -16,11 +16,12 @@
     transition: all 0.5s ease;
   }
   .content >h2{
-    font-size: 4rem;
+    font-size: 2rem;
     color: #fff;
     text-align: center;
     background-color: rgb(245, 102, 0);
     border-radius: 10px;
+    margin-bottom: 0;
   }
   
   @media screen and (min-width: 600px) {
@@ -46,6 +47,7 @@
   .content {
     position: absolute;
     top: 0rem;
+    bottom: 16rem;
     left: 5rem;
     opacity: 0;
     width: 50%;
@@ -73,7 +75,6 @@
     .content {
       width: 80%;
       top:0;
-  
       font-size: smaller;
       position: relative;
       z-index: 10;
@@ -93,7 +94,7 @@
   
   .content > * {
     color: rgb(255, 102, 0);
-    margin-bottom: -10rem;
+    margin-bottom: 0rem;
   }
   
   .current .content {
