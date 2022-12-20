@@ -90,6 +90,9 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.843);
             border-radius: 7px;
         }
+                  .content-box>.price-btn .btn:hover {
+                    background: rgb(74, 74, 241);
+                  }
     .flex{
         display: flex;
         justify-content: space-around;

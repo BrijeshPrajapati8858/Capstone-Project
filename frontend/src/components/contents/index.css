@@ -102,7 +102,7 @@ font-family: system-ui, 'Open Sans', 'Helvetica Neue', sans-serif;
         padding: .5rem 1rem;
     }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 460px) {
     .container{
         flex-direction: column-reverse;
         gap: 0;

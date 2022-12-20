@@ -8,12 +8,14 @@
     import LocalMallIcon from '@mui/icons-material/LocalMall';
     import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
     import PersonIcon from '@mui/icons-material/Person';
-    import DehazeIcon from '@mui/icons-material/Dehaze';
-    
+    // import DehazeIcon from '@mui/icons-material/Dehaze';
+    import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
     const BottomTab = () => {
 
       const { cartItems } = useSelector((state) => state.cart);
       // const { favouriteItems } = useSelector((state) => state.favourite);
+        // const { loading, error, orders } = useSelector((state) => state.myOrder);
+          const {isAuthenticated, user} = useSelector(state=> state.user)
 
       return (
         <>
@@ -43,7 +45,7 @@
             <div style={{
               position:"relative"
             }}>
-            <LocalMallIcon 
+            < ShoppingCartIcon
               className="hoverItem"
              style={{
               color:"#000",
@@ -112,8 +114,8 @@
           }}
           />
           </Link>
-          <Link to="/orders">
-            <DehazeIcon
+        {isAuthenticated? <Link to="/orders">
+            <LocalMallIcon
               className="hoverItem" style={{
               color:"#000",
               fontSize:"35px",
@@ -121,6 +123,7 @@
               opacity:".8"
             }} />
           </Link>
+    : " "}
         </div>
         </>
       );
