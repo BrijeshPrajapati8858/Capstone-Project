@@ -157,6 +157,7 @@ const LoginSignup = () => {
                 <FaceIcon />
                 <input
                   type="text"
+                  minLength="3"
                   placeholder="Name"
                   required
                   name="name"
@@ -178,6 +179,7 @@ const LoginSignup = () => {
               <div className="signUpPassword">
                 <LockOpenIcon />
                 <input
+                  minLength="8"
                   type="password"
                   placeholder="Password"
                   required
