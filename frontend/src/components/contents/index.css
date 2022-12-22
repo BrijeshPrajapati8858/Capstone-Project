@@ -94,8 +94,15 @@ font-family: system-ui, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @media screen and (max-width: 720px) {
+    .heading>h1 {
+        font-size: 2rem;
+    }
+    .right-s img {
+        height: 50vh;
+        position: relative;
+    }
     .form-input{
-        flex-direction: column;
+        /* flex-direction: column; */
         padding-left: 70px;
     }
     .btn-s{

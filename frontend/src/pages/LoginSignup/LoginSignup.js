@@ -75,10 +75,10 @@ const LoginSignup = () => {
     
     const redirect= location.search ? location.search.split("=")[1]: "/account";
     useEffect(() => {
-      // if(error){
-      //   toast.error(error);
-      //   dispatch(clearErrors());
-      // }
+      if(error){
+        toast.error(error);
+        dispatch(clearErrors());
+      }
       if(isAuthenticated){
         navigate(redirect)
        }
@@ -103,114 +103,124 @@ const LoginSignup = () => {
     }
   return (
     <>
-    {loading? <Loader/> : (   
-       <div className='LoginSignUpContainer'>
-        <div className='LoginSignUpBox'>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="LoginSignUpContainer">
+          <div className="LoginSignUpBox">
             <div>
-                <div className='login_signUp_toggle'>
-                <p onClick={((e)=> switchTabs(e, "login"))}>
-                    Login
-                </p>
-                <p onClick={((e)=> switchTabs(e, "register"))}>
-                    Register
-                </p>
-                </div>
-                <button ref={switcherTab}></button>
-            </div>
-
-        <form action="" className="loginForm" ref={loginTab} onSubmit={loginSubmit}>
-            <div className="loginEmail">
-               <MailOutlineIcon/> 
-               <input type="email" placeholder='Email' required value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)} />
-            </div>
-            <div className="loginPassword">
-                <LockOpenIcon />
-                <input type="password" placeholder="Password" required value={loginPassword} onChange={(e)=> setLoginPassword(e.target.value)}/>
-            </div>
-            <Link to='/password/forgot' className='forgotBtn'>Forget Password ?</Link>
-            <input type="submit" value="Login" className='loginBtn' />
-
-        </form>
-        <form
-                className="signUpForm"
-                ref={registerTab}
-                encType="multipart/form-data"
-                onSubmit={registerSubmit}
-              >
-                <div className="signUpName">
-                  <FaceIcon />
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    required
-                    name="name"
-                    value={name}
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <div className="signUpEmail">
-                  <MailOutlineIcon />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    name="email"
-                    value={email}
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <div className="signUpPassword">
-                  <LockOpenIcon />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    required
-                    name="password"
-                    value={password}
-                    onChange={registerDataChange}
-                  />
-                </div>
-
-                <div id="registerImage">
-                  <img src={avatarPreview} alt="Avatar Preview" />
-                  <input
-                    type="file"
-                    name="avatar"
-                    accept="image/*"
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <input type="submit" value="Register" className="signUpBtn" />
-                  <div className='rest-link'>
-              <Link to='/signup'> Register You Restaurant </Link>
+              <div className="login_signUp_toggle">
+                <p onClick={(e) => switchTabs(e, "login")}>Login</p>
+                <p onClick={(e) => switchTabs(e, "register")}>Register</p>
               </div>
-               
-              </form>  
-             
+              <button ref={switcherTab}></button>
+            </div>
 
-            
+            <form
+              action=""
+              className="loginForm"
+              ref={loginTab}
+              onSubmit={loginSubmit}
+            >
+              <div className="loginEmail">
+                <MailOutlineIcon />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                />
+              </div>
+              <div className="loginPassword">
+                <LockOpenIcon />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  required
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+              </div>
+              <Link to="/password/forgot" className="forgotBtn">
+                Forget Password ?
+              </Link>
+              <input type="submit" value="Login" className="loginBtn" />
+            </form>
+            <form
+              className="signUpForm"
+              ref={registerTab}
+              encType="multipart/form-data"
+              onSubmit={registerSubmit}
+            >
+              <div className="signUpName">
+                <FaceIcon />
+                <input
+                  type="text"
+                  placeholder="Name"
+                  required
+                  name="name"
+                  value={name}
+                  onChange={registerDataChange}
+                />
+              </div>
+              <div className="signUpEmail">
+                <MailOutlineIcon />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  name="email"
+                  value={email}
+                  onChange={registerDataChange}
+                />
+              </div>
+              <div className="signUpPassword">
+                <LockOpenIcon />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  required
+                  name="password"
+                  value={password}
+                  onChange={registerDataChange}
+                />
+              </div>
+
+              <div id="registerImage">
+                <img src={avatarPreview} alt="Avatar Preview" />
+                <input
+                  type="file"
+                  name="avatar"
+                  accept="image/*"
+                  onChange={registerDataChange}
+                  required
+                />
+              </div>
+              <input type="submit" value="Register" className="signUpBtn" />
+              <div className="rest-link">
+                <Link to="/signup">
+                  {" "}
+                  Click Here! (Register Your Restaurant){" "}
+                </Link>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
-       
-
-
-
-
-    )}
-<ToastContainer
-              position="top-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-
+      )}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
-  )
+  );
 };
 
 export default LoginSignup;

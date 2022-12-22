@@ -13,6 +13,7 @@
  
    
   }
+
   
   .searchBox > input[type="text"] {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
@@ -29,13 +30,22 @@
   }
   .searchBox > input[type="submit"] {
     height: 8%;
-    width: 10%;
     font: 300 2vw "Roboto";
     background-color: rgb(224, 161, 1);
     margin-left:5px;
     border-radius: 8px;
   }
-  @media screen and (max-width: 600px) {
+     .searchBox>input[type="submit"]:hover
+{
+background-color: rgb(57, 57, 247) !important;
+} 
+
+@media screen and (max-width: 600px) {
+    .searchBox {
+      flex-direction: column;
+     padding-inline: 20px;
+     gap: 1rem;
+    }
     .searchBox > input[type="text"] {
       width: 100%;
       font: 300 4vw cursive;
@@ -47,8 +57,7 @@
       width: 30%;
       font: 300 4vw "Roboto";
     }
-  }
-  @media screen and (max-width: 600px) {
+
     .searchBox > input[type="text"]{
       margin: 0 5%;
     }

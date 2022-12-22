@@ -83,7 +83,7 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.267);
     border-radius: 4px;
-    font: 300 0.9vmax cursive;
+    font: 300 0.9vmax "Roboto";
     outline: none;
   }
   
@@ -124,7 +124,7 @@
     height: 5vh;
     border: none;
     margin: 0%;
-    font: 400 0.8vmax cursive;
+    font: 400 0.8vmax "Roboto";
     transition: all 0.5s;
     padding: 0 1vmax;
     color: rgba(0, 0, 0, 0.623);
@@ -170,7 +170,7 @@
     transform: translateX(100%);
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 840px) {
     .LoginSignUpContainer {
       background-color: white;
      
@@ -194,11 +194,11 @@
   
     .loginForm div> input{
       padding: 2.5vmax 5vmax!important;
-      font: 300 2.7vmax cursive !important;
+      font: 300 2.7vmax "Roboto" !important;
     }
     .signUpForm > div > input {
       padding: 2.5vmax 5vmax !important;
-      font: 300 1.7vmax cursive !important;
+      font: 300 1.7vmax "Roboto" !important;
     }
   
     .loginForm > div > svg{
@@ -220,7 +220,7 @@
   
     #registerImage > input::file-selector-button {
       height: 7vh !important;
-      font: 400 1.8vmax cursive !important;
+      font: 400 1.8vmax "Roboto" !important;
     }
   
     .loginBtn,

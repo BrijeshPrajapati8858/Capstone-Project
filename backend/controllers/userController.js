@@ -13,6 +13,9 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     width: 150,
     crop: "scale",
   });
+if(!mycloud){
+   return next(new ErrorHandler("Please choose profile pic", 401));
+}
   const {
     name,
     email,

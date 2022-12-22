@@ -197,9 +197,11 @@ useEffect(() => {
                 <div id="registerImages">
                   <img src={avatarPreview} alt="Avatar Preview" />
                   <input
+                  
                     type="file"
                     name="avatar"
                     accept="image/*"
+                        required
                     onChange={registerDataChange}
                   />
                 </div>
