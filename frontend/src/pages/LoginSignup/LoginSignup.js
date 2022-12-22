@@ -198,6 +198,8 @@ const LoginSignup = () => {
                   onChange={registerDataChange}
                   required
                 />
+                <p style={{fontSize : "10px", color: "red"}}>File size should be less than 500kb.
+                  </p>
               </div>
               <input type="submit" value="Register" className="signUpBtn" />
               <div className="rest-link">
